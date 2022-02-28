@@ -16,10 +16,14 @@ const NotFound = ()=>{
 ReactDOM.render(
   <DataProvider>
     <BrowserRouter>
-      <Routes>
+            <Routes>
         <Route path="/" element={<App />}>
-          <Route path="/about" element={<About />} />
-          <Route path="/home" element={<Home />} />
+          {/* index will match parent path in this case '/' */}
+          <Route index element={<Links />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/links/:id' element={<LinkShow />} />
+          <Route path='/links/new' element={<LinkForm />} />
+          <Route path='/links/:id/edit' element={<LinkForm />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
