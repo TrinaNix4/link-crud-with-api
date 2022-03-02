@@ -13,7 +13,7 @@ function App() {
            
       
         </nav>
-        
+        <p>Outlet component here</p>
         <Outlet />
     </div>
   );

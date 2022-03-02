@@ -1,10 +1,11 @@
+// renaming react router Link component to ReactRouterLink
+// to not get confused with our Link component
 import { useContext } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
-import { DataContext } from "../providers/DataProvider"; 
-//renaming react router link to ReactRouterLink so no confusion with our Link component
+import { DataContext } from "../providers/DataProvider";
 
 const Links = () => {
-  let { links, getLinks, addLink, updateLink, deleteLink, loading, error } =
+  let { links, getLinks, addLink, createLink, updateLink, deleteLink, loading, error } =
     useContext(DataContext);
 
   const renderLinks = () => {
@@ -24,8 +25,8 @@ const Links = () => {
           <button disabled={loading} onClick={() => deleteLink(link.id)}>
             delete
           </button>
-          <ReactRouterLink to={`links/${link.id}`}>show</ReactRouterLink>
-          <ReactRouterLink to={`links/${link.id}/edit`} state={{...link}}>edit</ReactRouterLink>
+          <ReactRouterLink to={`links/${link.id}`}> show </ReactRouterLink>
+          <ReactRouterLink to={`links/${link.id}/edit`} state={{...link}}> edit </ReactRouterLink>
         </div>
       );
     });
@@ -36,10 +37,9 @@ const Links = () => {
 
       <ReactRouterLink to='links/new'>new link</ReactRouterLink>
       <button onClick={getLinks}>get links</button>
-      <p>CRUD TEST</p>
-   
-      <p>loading state: {loading ? "true" : "false"}</p>
-      <p>error state: {error ? "true" : "false"}</p>
+     <button onClick={()=>createLink( {title:'title here', username:'trinan'} )}>create link</button>
+        <button onClick={()=>updateLink( {id:19, title:'UPDATED'} )}>update link</button>
+        <button onClick={()=>deleteLink(19)}>delete link</button>
       {renderLinks()}
     </div>
   );

@@ -20,7 +20,8 @@ ReactDOM.render(
             <Routes>
         <Route path="/" element={<App />}>
           {/* index will match parent path in this case '/' */}
-         <Route index  element={<Links />} />
+         <Route index  element={<Links />} />  {/* index w/no path; matches the parent path */}
+
           <Route path="/links/new" element={<LinkForm />} />
           <Route path="/links/:id" element={<LinkShow />} />
           <Route path="/links/:id/edit" element={<LinkForm />} />

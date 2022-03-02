@@ -90,9 +90,20 @@ const DataProvider = (props) => {
       setLoading(false);
     }
   };
+  const createLink = async(linkObj)=>{
+    try{
+      let res = await axios.post('https://link-app-sp22.herokuapp.com/api/links')
+    
+      setLinks([res.data, ...links])
+    
+    }catch(err){
+      alert('err occurred')
+    }
+  }
 
   // create an object that will be 'global state'
   const dataProviderThing = {
+    createLink,
     links,
     getLinks,
     addLink,
