@@ -34,7 +34,7 @@ const DataProvider = (props) => {
   };
 
   const addLink = async (linkData) => {
-    console.log('linkData:', linkData)
+   
     beforeApiCallSetup();
     try {
       // try to create link to db... post 'api/links'
@@ -90,7 +90,8 @@ const DataProvider = (props) => {
       setLoading(false);
     }
   };
-  const createLink = async(linkObj)=>{
+  //same as addLink method above 
+ /*  const createLink = async(linkObj)=>{
     try{
       let res = await axios.post('https://link-app-sp22.herokuapp.com/api/links')
     
@@ -100,10 +101,9 @@ const DataProvider = (props) => {
       alert('err occurred')
     }
   }
-
+ */
   // create an object that will be 'global state'
   const dataProviderThing = {
-    createLink,
     links,
     getLinks,
     addLink,

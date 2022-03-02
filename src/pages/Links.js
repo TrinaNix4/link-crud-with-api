@@ -5,7 +5,7 @@ import { Link as ReactRouterLink } from "react-router-dom";
 import { DataContext } from "../providers/DataProvider";
 
 const Links = () => {
-  let { links, getLinks, addLink, createLink, updateLink, deleteLink, loading, error } =
+  let { links, getLinks, addLink, updateLink, deleteLink, loading, error } =
     useContext(DataContext);
 
   const renderLinks = () => {
@@ -37,9 +37,9 @@ const Links = () => {
 
       <ReactRouterLink to='links/new'>new link</ReactRouterLink>
       <button onClick={getLinks}>get links</button>
-     <button onClick={()=>createLink( {title:'title here', username:'trinan'} )}>create link</button>
+     <button onClick={()=>addLink( {title:'title here', username:'trinan'} )}>add link</button>
         <button onClick={()=>updateLink( {id:19, title:'UPDATED'} )}>update link</button>
-        <button onClick={()=>deleteLink(19)}>delete link</button>
+        
       {renderLinks()}
     </div>
   );
